@@ -30,7 +30,6 @@ export class AuthService {
       await user.save();
       const { password: _, ...result } = user.toJSON();
       return result as User;
-      // TODO: Hash password, generate JWT token, save user in DB
     } catch (error) {
       if (error.code === 11000) {
         throw new BadRequestException('Email already exists');
